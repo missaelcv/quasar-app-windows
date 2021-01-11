@@ -1,7 +1,7 @@
 # Quasar App 
 A Quasar Framework app
 
-<img src="C:\Users\Usuario\Desktop\Desktop App Windows con Vue JS/Texto.png" alt="Texto.png">
+<img src="Texto.png" alt="Texto.png" style="width:500px;height:600px;">
 
 ### Build the app for production
 ```
