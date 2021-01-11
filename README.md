@@ -1,7 +1,7 @@
 # Quasar App 
 A Quasar Framework app
 
-<img src="Texto.png" alt="Texto.png" style="width:500px;height:600px;">
+<img src="C:\Users\Usuario\Desktop\Texto.png" alt="Texto.png" style="width:500px;height:600px;">
 
 ### Build the app for production
 ```
