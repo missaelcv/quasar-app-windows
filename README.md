@@ -1,6 +1,8 @@
 # Quasar App 
 A Quasar Framework app
 
+<img src="C:\Users\Usuario\Desktop\Desktop App Windows con Vue JS/Texto.png" alt="Texto.png">
+
 ### Build the app for production
 ```
 quasar create nombre-proyecto
