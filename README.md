@@ -90,6 +90,71 @@ Ejecutar: Get-ExecutionPolicy si devuelte: Restricted ejecutar: Set-ExecutionPol
 Ahora ejecutar: Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 Pff listo ejecuta: choco y deberías ver algo.
 ```
+Segunda Parte 
+Boot
+Si nos fijamos en nuestro directorio de carpetas existe una llamada boot aquí vamos a crear un archivo llamado firebase.js, recuerde antes crear un nuevo proyecto en su consola de firebase
 
+Importa esto despues de haber creado el archivo firebase.js
+```
+import * as firebase from "firebase/app";
+import "firebase/firestore";
+
+// Agregar configuración firebase:
+var firebaseConfig = {
+  apiKey: "xxx",
+  authDomain: "xxx",
+  databaseURL: "xxx",
+  projectId: "xxx",
+  storageBucket: "xxx",
+  messagingSenderId: "xxx",
+  appId: "xxx"
+};
+
+let firebaseApp = firebase.initializeApp(firebaseConfig);
+let db = firebase.firestore();
+
+export { db, firebase };
+```
+```
+Luego en nuestro archivo quasar.conf.js añadimos este archivo:
+
+boot: [
+  'axios', 'firebase'
+],
+```
+
+```
+Array Tasks
+Nuestro array de Tasks lo modificaremos de la siguiente manera:
+
+tasks: [
+  {
+    id: "idTask",
+    texto: "Aquí irá el texto de la nota",
+    estado: false
+  }
+];
+```
+
+GET Tasks
+Crearemos el siguiente método:
+```
+import { db } from "boot/firebase"; // no olvidar importar db
+
+async leerDatos(){
+  try {
+    this.$q.loading.show()
+    const query = await db.collection('metas').get();
+    query.forEach(element => {
+      let task = {id: element.id, texto: element.data().texto, estado: element.data().estado}
+      this.tasks.push(task);
+    });
+  } catch (error) {
+    console.log(error);
+  } finally {
+    this.$q.loading.hide()
+  }
+},
+```
 ### Customize the configuration
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
