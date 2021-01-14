@@ -115,9 +115,9 @@ let db = firebase.firestore();
 
 export { db, firebase };
 ```
-```
-Luego en nuestro archivo quasar.conf.js añadimos este archivo:
 
+## Luego en nuestro archivo quasar.conf.js añadimos este archivo:
+```
 boot: [
   'axios', 'firebase'
 ],
@@ -250,9 +250,11 @@ Agregar boton y nuevo editor:
 />
 ```
 
+```
 <q-btn flat color="yellow" @click="editar(index, item.id)">Editar</q-btn>
 ```
 ## Datos:
+
 ```
 data() {
   return {
